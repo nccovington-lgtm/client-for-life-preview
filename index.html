@@ -446,6 +446,31 @@
   }
   .footer-right span { color: #1a1a2e; font-weight: 500; }
 
+  /* ── MOBILE TOGGLE ── */
+  .mobile-toggle { display: none; }
+  .toggle-bar { display: flex; background: #f5f4f0; border-radius: 10px; padding: 4px; margin-bottom: 20px; }
+  .toggle-btn { flex: 1; padding: 11px; text-align: center; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s; color: #888780; border: none; background: transparent; font-family: 'DM Sans', sans-serif; }
+  .toggle-btn.active-base { background: #ffffff; color: #1a1a2e; border: 0.5px solid #d3d1c7; }
+  .toggle-btn.active-pro { background: #1a1a2e; color: #9FE1CB; }
+  .mt-price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+  .mt-price-big { font-size: 32px; font-weight: 600; color: #1a1a2e; line-height: 1; }
+  .mt-price-per { font-size: 12px; color: #888780; font-family: 'DM Mono', monospace; }
+  .mt-tagline { font-size: 13px; color: #5F5E5A; margin-bottom: 20px; line-height: 1.5; font-style: italic; }
+  .mt-group { margin-bottom: 18px; }
+  .mt-group-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #888780; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 0.5px solid #e8e6e0; }
+  .mt-item { display: flex; align-items: flex-start; gap: 10px; padding: 9px 0; border-bottom: 0.5px solid #f0eeea; }
+  .mt-item:last-child { border-bottom: none; }
+  .mt-dot { width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; margin-top: 1px; font-weight: 700; }
+  .mt-dot.yes { background: #E1F5EE; color: #085041; }
+  .mt-dot.pro { background: #1a1a2e; color: #5DCAA5; }
+  .mt-dot.no { background: #f5f4f0; color: #d3d1c7; }
+  .mt-text { font-size: 13px; color: #1a1a2e; line-height: 1.4; }
+  .mt-sub { font-size: 11px; color: #888780; margin-top: 2px; font-family: 'DM Mono', monospace; }
+  .mt-badge { font-family: 'DM Mono', monospace; font-size: 10px; background: #EEEDFE; color: #3C3489; padding: 2px 7px; border-radius: 4px; display: inline-block; margin-top: 3px; }
+  .mt-note { font-family: 'DM Mono', monospace; font-size: 11px; color: #888780; margin-top: 6px; padding: 8px 12px; background: #f5f4f0; border-radius: 6px; border: 0.5px solid #e8e6e0; line-height: 1.6; }
+  .mt-panel { display: none; }
+  .mt-panel.active { display: block; }
+
   /* ── MOBILE BREAKPOINTS ── */
   @media (max-width: 640px) {
     .header { padding: 24px 20px 20px; }
@@ -457,7 +482,8 @@
 
     .steps { grid-template-columns: 1fr; gap: 10px; }
 
-    .compare-wrap { border-radius: 8px; }
+    .compare-wrap { display: none; }
+    .mobile-toggle { display: block; }
 
     .pricing-grid { grid-template-columns: 1fr; }
     .pricing-price { font-size: 30px; }
@@ -631,17 +657,17 @@
             </tr>
             <tr class="section-row"><td colspan="3">Prize and giveaway system — pro only</td></tr>
             <tr class="feature-row">
-              <td>Monthly prize draw — $50–$150 gift cards</td>
+              <td>Monthly prize draw — curated gift selection</td>
               <td class="col-base"><span class="dash">—</span></td>
               <td class="col-pro"><span class="check">✓</span></td>
             </tr>
             <tr class="feature-row">
-              <td>Quarterly prize draw — $150–$500 experiences and gifts</td>
+              <td>Quarterly prize draw — premium curated experiences and gifts</td>
               <td class="col-base"><span class="dash">—</span></td>
               <td class="col-pro"><span class="check">✓</span></td>
             </tr>
             <tr class="feature-row">
-              <td>Annual prize draw — $500–$1,500 travel or premium gift</td>
+              <td>Annual prize draw — top tier curated selection</td>
               <td class="col-base"><span class="dash">—</span></td>
               <td class="col-pro"><span class="check">✓</span></td>
             </tr>
@@ -649,6 +675,9 @@
               <td>Prize fulfillment — fully handled, nothing to buy or ship</td>
               <td class="col-base"><span class="dash">—</span></td>
               <td class="col-pro"><span class="check">✓</span></td>
+            </tr>
+            <tr class="feature-row">
+              <td colspan="3" style="font-family:'DM Mono',monospace; font-size:11px; color:#888780; background:#f9f8f5;">* Prize costs are separate from the monthly platform fee. Each tier includes a curated menu of options — you choose what fits your clients and budget.</td>
             </tr>
             <tr class="section-row"><td colspan="3">Lead generation — pro only</td></tr>
             <tr class="feature-row">
@@ -676,9 +705,60 @@
       </div>
     </div>
 
-    <hr class="divider">
-
-    <!-- PRICING + ROI -->
+    <!-- MOBILE TOGGLE -->
+    <div class="mobile-toggle">
+      <div class="toggle-bar">
+        <button class="toggle-btn active-base" id="btn-base" onclick="switchPlan('base')">Base — $149/mo</button>
+        <button class="toggle-btn" id="btn-pro" onclick="switchPlan('pro')">Pro — $249/mo</button>
+      </div>
+      <div class="mt-panel active" id="panel-base">
+        <div class="mt-price-row"><span class="mt-price-big">$149</span><span class="mt-price-per">/month per agent</span></div>
+        <div class="mt-tagline">"Stop going dark. Your past clients hear from you every month, automatically."</div>
+        <div class="mt-group">
+          <div class="mt-group-label">Monthly newsletter</div>
+          <div class="mt-item"><div class="mt-dot yes">✓</div><div><div class="mt-text">Monthly send — AI drafted, agent approved</div><div class="mt-sub">One 60-second approval, everything else automatic</div></div></div>
+          <div class="mt-item"><div class="mt-dot yes">✓</div><div><div class="mt-text">Live market data</div><div class="mt-sub">Median price, days on market, active inventory</div></div></div>
+          <div class="mt-item"><div class="mt-dot yes">✓</div><div><div class="mt-text">AVM home value — personalized per client</div><div class="mt-sub">Their specific address, pulled automatically each month</div></div></div>
+          <div class="mt-item"><div class="mt-dot yes">✓</div><div><div class="mt-text">Seasonal home tip</div></div></div>
+        </div>
+        <div class="mt-group">
+          <div class="mt-group-label">Automated touchpoints</div>
+          <div class="mt-item"><div class="mt-dot yes">✓</div><div><div class="mt-text">Weird daily holiday — opens every send with personality</div></div></div>
+          <div class="mt-item"><div class="mt-dot yes">✓</div><div><div class="mt-text">Birthday send — warm auto message</div></div></div>
+          <div class="mt-item"><div class="mt-dot yes">✓</div><div><div class="mt-text">Home anniversary send — triggered on purchase date</div></div></div>
+        </div>
+        <div class="mt-group">
+          <div class="mt-group-label">Not included in base</div>
+          <div class="mt-item" style="opacity:0.4;"><div class="mt-dot no">—</div><div><div class="mt-text">Weekly sends, trivia, polls, leaderboard</div><div class="mt-badge">Pro only</div></div></div>
+          <div class="mt-item" style="opacity:0.4;"><div class="mt-dot no">—</div><div><div class="mt-text">Prize and raffle system</div><div class="mt-badge">Pro only</div></div></div>
+          <div class="mt-item" style="opacity:0.4;"><div class="mt-dot no">—</div><div><div class="mt-text">Lead gen surveys and engagement intelligence</div><div class="mt-badge">Pro only</div></div></div>
+        </div>
+      </div>
+      <div class="mt-panel" id="panel-pro">
+        <div class="mt-price-row"><span class="mt-price-big">$249</span><span class="mt-price-per">/month per agent</span></div>
+        <div class="mt-tagline">"Turn your database into an active referral engine with prizes, engagement, and lead intelligence."</div>
+        <div class="mt-group">
+          <div class="mt-group-label">Everything in base, plus</div>
+          <div class="mt-item"><div class="mt-dot pro">✓</div><div><div class="mt-text">Weekly sends — trivia, fun facts, word of week, polls</div><div class="mt-sub">Fully automated, zero approval needed</div></div></div>
+          <div class="mt-item"><div class="mt-dot pro">✓</div><div><div class="mt-text">Leaderboard — client scoring year-round</div></div></div>
+          <div class="mt-item"><div class="mt-dot pro">✓</div><div><div class="mt-text">Agent tone matching — newsletters sound like you</div></div></div>
+        </div>
+        <div class="mt-group">
+          <div class="mt-group-label">Prize and giveaway system</div>
+          <div class="mt-item"><div class="mt-dot pro">✓</div><div><div class="mt-text">Monthly prize draw</div><div class="mt-sub">Choose from a curated selection at each draw level</div></div></div>
+          <div class="mt-item"><div class="mt-dot pro">✓</div><div><div class="mt-text">Quarterly prize draw</div><div class="mt-sub">Premium curated options — experiences, gifts, and more</div></div></div>
+          <div class="mt-item"><div class="mt-dot pro">✓</div><div><div class="mt-text">Annual prize draw</div><div class="mt-sub">Top tier curated selection — your clients will remember it</div></div></div>
+          <div class="mt-item"><div class="mt-dot pro">✓</div><div><div class="mt-text">Prize fulfillment — fully handled for you</div><div class="mt-sub">Nothing to buy, wrap, or ship</div></div></div>
+          <div class="mt-note">* Prize costs are separate from the monthly platform fee. Each tier includes a curated menu of options — you choose what fits your clients and budget.</div>
+        </div>
+        <div class="mt-group">
+          <div class="mt-group-label">Lead generation</div>
+          <div class="mt-item"><div class="mt-dot pro">✓</div><div><div class="mt-text">Quarterly survey — lead capture disguised as engagement</div><div class="mt-sub">"Thinking about making a move?" goes straight to you</div></div></div>
+          <div class="mt-item"><div class="mt-dot pro">✓</div><div><div class="mt-text">Engagement intelligence — see who's warm</div></div></div>
+          <div class="mt-item"><div class="mt-dot pro">✓</div><div><div class="mt-text">VIP client gifting — handled for you</div></div></div>
+        </div>
+      </div>
+    </div>
     <div class="section">
       <div class="section-label">Plans</div>
       <div class="pricing-grid">
@@ -798,5 +878,13 @@
   </div>
 
 </div>
+<script>
+function switchPlan(plan) {
+  document.getElementById('panel-base').classList.toggle('active', plan === 'base');
+  document.getElementById('panel-pro').classList.toggle('active', plan === 'pro');
+  document.getElementById('btn-base').className = 'toggle-btn' + (plan === 'base' ? ' active-base' : '');
+  document.getElementById('btn-pro').className = 'toggle-btn' + (plan === 'pro' ? ' active-pro' : '');
+}
+</script>
 </body>
 </html>
