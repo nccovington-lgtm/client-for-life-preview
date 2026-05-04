@@ -13,265 +13,245 @@
     font-family: 'DM Sans', sans-serif;
     background: #f5f4f0;
     color: #1a1a2e;
-    font-size: 11pt;
     line-height: 1.5;
+    font-size: 15px;
   }
 
   .page {
-    width: 8.5in;
-    min-height: 11in;
+    max-width: 900px;
     margin: 0 auto;
     background: #ffffff;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
   }
 
-  /* HEADER */
+  /* ── HEADER ── */
   .header {
     background: #1a1a2e;
-    padding: 26px 40px 22px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
+    padding: 32px 40px 28px;
   }
   .header-eyebrow {
     font-family: 'DM Mono', monospace;
-    font-size: 8pt;
+    font-size: 11px;
     letter-spacing: 2.5px;
     color: #5DCAA5;
     text-transform: uppercase;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
   .header-title {
-    font-size: 26pt;
+    font-size: 38px;
     font-weight: 600;
     color: #ffffff;
-    letter-spacing: -0.5px;
+    letter-spacing: -1px;
     line-height: 1;
+    margin-bottom: 10px;
   }
   .header-tagline {
-    font-size: 9.5pt;
+    font-size: 15px;
     color: #888780;
-    margin-top: 6px;
-    max-width: 400px;
-    line-height: 1.5;
+    line-height: 1.6;
+    max-width: 520px;
+    margin-bottom: 20px;
   }
-  .header-right { text-align: right; }
+  .header-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
   .header-pills {
     display: flex;
-    gap: 6px;
+    gap: 8px;
     flex-wrap: wrap;
-    justify-content: flex-end;
-    margin-bottom: 8px;
   }
   .pill {
     font-family: 'DM Mono', monospace;
-    font-size: 7.5pt;
-    padding: 3px 10px;
+    font-size: 11px;
+    padding: 4px 12px;
     border-radius: 20px;
     border: 0.5px solid rgba(255,255,255,0.2);
     color: #9FE1CB;
   }
   .header-price {
     font-family: 'DM Mono', monospace;
-    font-size: 8.5pt;
+    font-size: 13px;
     color: #5F5E5A;
+    white-space: nowrap;
   }
   .header-price span {
     color: #ffffff;
-    font-size: 11pt;
+    font-size: 16px;
     font-weight: 500;
   }
 
-  /* BODY */
-  .body {
-    padding: 24px 40px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-    align-content: start;
-  }
-  .full-width { grid-column: 1 / -1; }
+  /* ── BODY ── */
+  .body { padding: 32px 40px; }
 
   .section-label {
     font-family: 'DM Mono', monospace;
-    font-size: 7.5pt;
+    font-size: 11px;
     letter-spacing: 2px;
     color: #888780;
     text-transform: uppercase;
-    margin-bottom: 10px;
-    padding-bottom: 6px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
     border-bottom: 0.5px solid #e8e6e0;
   }
 
+  .section { margin-bottom: 36px; }
+
   .divider {
-    grid-column: 1 / -1;
     border: none;
     border-top: 0.5px solid #e8e6e0;
-    margin: 2px 0;
+    margin: 32px 0;
   }
 
-  /* HOW IT WORKS */
+  /* ── HOW IT WORKS ── */
   .steps {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 12px;
+    margin-bottom: 14px;
   }
   .step {
     background: #f5f4f0;
-    border-radius: 6px;
-    padding: 12px 14px;
+    border-radius: 8px;
+    padding: 16px;
   }
   .step-num {
     font-family: 'DM Mono', monospace;
-    font-size: 16pt;
+    font-size: 26px;
     font-weight: 500;
     color: #d3d1c7;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     line-height: 1;
   }
   .step-title {
-    font-size: 9.5pt;
+    font-size: 14px;
     font-weight: 600;
     color: #1a1a2e;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
   }
   .step-desc {
-    font-size: 8pt;
+    font-size: 13px;
     color: #5F5E5A;
     line-height: 1.5;
   }
   .approval-note {
     background: #E1F5EE;
-    border-left: 2.5px solid #1D9E75;
-    border-radius: 0 6px 6px 0;
-    padding: 8px 12px;
-    font-size: 8pt;
+    border-left: 3px solid #1D9E75;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    font-size: 13px;
     color: #085041;
-    margin-top: 10px;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
-  /* COMPARISON TABLE */
+  /* ── COMPARISON TABLE ── */
   .compare-wrap {
     border: 0.5px solid #e8e6e0;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .compare-table {
     width: 100%;
+    min-width: 480px;
     border-collapse: collapse;
-    font-size: 8.5pt;
+    font-size: 13px;
   }
   .compare-table th {
-    padding: 10px 14px;
+    padding: 14px 16px;
     text-align: left;
     font-weight: 500;
-    font-size: 8pt;
+    font-size: 13px;
     border-bottom: 0.5px solid #e8e6e0;
   }
   .compare-table th.col-feature {
     font-family: 'DM Mono', monospace;
-    font-size: 7.5pt;
+    font-size: 11px;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #888780;
     background: #f5f4f0;
-    width: 46%;
+    width: 50%;
   }
   .compare-table th.col-base {
     background: #f5f4f0;
     color: #1a1a2e;
-    width: 27%;
+    width: 25%;
     text-align: center;
   }
   .compare-table th.col-pro {
     background: #1a1a2e;
     color: #ffffff;
-    width: 27%;
+    width: 25%;
     text-align: center;
   }
   .compare-table th.col-pro .pro-price {
     display: block;
     font-family: 'DM Mono', monospace;
-    font-size: 7pt;
+    font-size: 11px;
     color: #5DCAA5;
     font-weight: 400;
-    margin-top: 2px;
+    margin-top: 3px;
   }
   .compare-table th.col-base .base-price {
     display: block;
     font-family: 'DM Mono', monospace;
-    font-size: 7pt;
+    font-size: 11px;
     color: #888780;
     font-weight: 400;
-    margin-top: 2px;
+    margin-top: 3px;
   }
   .compare-table tr.section-row td {
     background: #f9f8f5;
     font-family: 'DM Mono', monospace;
-    font-size: 7pt;
+    font-size: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #888780;
-    padding: 6px 14px;
+    padding: 8px 16px;
     border-bottom: 0.5px solid #e8e6e0;
   }
   .compare-table tr.feature-row td {
-    padding: 7px 14px;
+    padding: 10px 16px;
     border-bottom: 0.5px solid #f0eeea;
     color: #1a1a2e;
     vertical-align: middle;
   }
-  .compare-table tr.feature-row:last-child td {
-    border-bottom: none;
-  }
+  .compare-table tr.feature-row:last-child td { border-bottom: none; }
   .compare-table td.col-base,
-  .compare-table td.col-pro {
-    text-align: center;
-  }
-  .compare-table td.col-pro {
-    background: #f9f8ff;
-  }
-  .check { color: #1D9E75; font-size: 11pt; font-weight: 600; }
-  .dash { color: #d3d1c7; font-size: 11pt; }
-  .pro-only {
-    font-family: 'DM Mono', monospace;
-    font-size: 6.5pt;
-    background: #EEEDFE;
-    color: #3C3489;
-    padding: 1px 5px;
-    border-radius: 3px;
-    display: inline-block;
-    margin-left: 4px;
-    vertical-align: middle;
-  }
+  .compare-table td.col-pro { text-align: center; }
+  .compare-table td.col-pro { background: #f9f8ff; }
+  .check { color: #1D9E75; font-size: 16px; font-weight: 700; }
+  .dash { color: #d3d1c7; font-size: 16px; }
 
-  /* PRICING CARDS */
+  /* ── PRICING ── */
   .pricing-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 12px;
+    gap: 12px;
+    margin-bottom: 0;
   }
   .pricing-card {
     border: 0.5px solid #e8e6e0;
-    border-radius: 8px;
-    padding: 14px 16px;
+    border-radius: 10px;
+    padding: 20px;
   }
-  .pricing-card.featured { border: 1.5px solid #185FA5; }
+  .pricing-card.featured { border: 2px solid #185FA5; }
   .pricing-badge {
     font-family: 'DM Mono', monospace;
-    font-size: 7.5pt;
-    padding: 2px 8px;
+    font-size: 11px;
+    padding: 3px 10px;
     border-radius: 20px;
     display: inline-block;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
   .pricing-badge.base { background: #f5f4f0; color: #888780; }
   .pricing-badge.pro { background: #E6F1FB; color: #0C447C; }
   .pricing-price {
-    font-size: 22pt;
+    font-size: 36px;
     font-weight: 600;
     color: #1a1a2e;
     line-height: 1;
@@ -279,112 +259,255 @@
   }
   .pricing-per {
     font-family: 'DM Mono', monospace;
-    font-size: 7.5pt;
+    font-size: 11px;
     color: #888780;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
   }
   .pricing-tagline {
-    font-size: 8.5pt;
+    font-size: 13px;
     color: #5F5E5A;
-    line-height: 1.5;
-    padding-top: 8px;
+    line-height: 1.6;
+    padding-top: 12px;
     border-top: 0.5px solid #e8e6e0;
     font-style: italic;
   }
 
-  /* ROI BAR */
+  /* ── ROI BAR ── */
   .roi-bar {
     background: #1a1a2e;
-    border-radius: 8px;
-    padding: 14px 20px;
+    border-radius: 10px;
+    padding: 20px 24px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0;
+    margin-top: 20px;
   }
   .roi-item {
-    padding: 0 16px 0 0;
+    padding-right: 20px;
+    margin-right: 20px;
     border-right: 0.5px solid rgba(255,255,255,0.1);
-    margin-right: 16px;
   }
-  .roi-item:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+  .roi-item:last-child { border-right: none; padding-right: 0; margin-right: 0; }
   .roi-label {
     font-family: 'DM Mono', monospace;
-    font-size: 7pt;
+    font-size: 10px;
     color: #5F5E5A;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
   .roi-val {
-    font-size: 14pt;
+    font-size: 22px;
     font-weight: 600;
     color: #ffffff;
     line-height: 1.1;
-    margin-bottom: 2px;
-  }
-  .roi-val.green { color: #5DCAA5; }
-  .roi-sub { font-size: 7.5pt; color: #5F5E5A; font-family: 'DM Mono', monospace; }
-
-  /* FEEDBACK */
-  .feedback-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-  .fq {
-    border: 0.5px solid #e8e6e0;
-    border-radius: 6px;
-    padding: 10px 12px;
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-  }
-  .fq-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 14pt;
-    font-weight: 500;
-    color: #d3d1c7;
-    line-height: 1;
-    flex-shrink: 0;
-  }
-  .fq-text {
-    font-size: 8.5pt;
-    color: #1a1a2e;
-    line-height: 1.5;
-    font-weight: 500;
     margin-bottom: 3px;
   }
-  .fq-sub {
-    font-size: 7.5pt;
-    color: #888780;
+  .roi-val.green { color: #5DCAA5; }
+  .roi-sub { font-size: 11px; color: #5F5E5A; font-family: 'DM Mono', monospace; }
+
+  /* ── VALUE STATS ── */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .stat-card {
+    background: #1a1a2e;
+    border-radius: 10px;
+    padding: 18px 16px;
+  }
+  .stat-val {
+    font-size: 36px;
+    font-weight: 600;
+    color: #5DCAA5;
+    line-height: 1;
+    margin-bottom: 8px;
     font-family: 'DM Mono', monospace;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: #ffffff;
+    line-height: 1.5;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .stat-sub {
+    font-size: 11px;
+    color: #5F5E5A;
     line-height: 1.4;
+    font-family: 'DM Mono', monospace;
   }
 
-  /* FOOTER */
+  /* ── VALUE GRID ── */
+  .value-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .proof-card {
+    background: #f5f4f0;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .proof-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #888780;
+    margin-bottom: 12px;
+  }
+  .proof-quote {
+    font-size: 14px;
+    color: #1a1a2e;
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 8px;
+    border-left: 3px solid #1D9E75;
+    padding-left: 14px;
+  }
+  .proof-attr {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: #888780;
+    margin-bottom: 14px;
+    padding-left: 14px;
+  }
+  .proof-point {
+    font-size: 13px;
+    line-height: 1.6;
+    font-weight: 500;
+    background: #E1F5EE;
+    border-radius: 6px;
+    padding: 10px 14px;
+    color: #085041;
+  }
+  .experience-card {
+    border: 0.5px solid #e8e6e0;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .exp-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .exp-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .exp-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  .dot-green { background: #1D9E75; }
+  .dot-blue { background: #185FA5; }
+  .dot-amber { background: #EF9F27; }
+  .dot-purple { background: #7F77DD; }
+  .exp-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-bottom: 2px;
+  }
+  .exp-desc {
+    font-size: 12px;
+    color: #5F5E5A;
+    line-height: 1.5;
+  }
+
+  /* ── FOOTER ── */
   .footer {
     background: #f5f4f0;
     border-top: 0.5px solid #e8e6e0;
-    padding: 11px 40px;
+    padding: 16px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
   }
   .footer-left {
     font-family: 'DM Mono', monospace;
-    font-size: 7.5pt;
+    font-size: 11px;
     color: #888780;
   }
   .footer-right {
     font-family: 'DM Mono', monospace;
-    font-size: 7.5pt;
+    font-size: 11px;
     color: #888780;
   }
   .footer-right span { color: #1a1a2e; font-weight: 500; }
 
+  /* ── MOBILE BREAKPOINTS ── */
+  @media (max-width: 640px) {
+    .header { padding: 24px 20px 20px; }
+    .header-title { font-size: 28px; }
+    .header-tagline { font-size: 14px; }
+    .header-bottom { flex-direction: column; align-items: flex-start; }
+
+    .body { padding: 24px 20px; }
+
+    .steps { grid-template-columns: 1fr; gap: 10px; }
+
+    .compare-wrap { border-radius: 8px; }
+
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-price { font-size: 30px; }
+
+    .roi-bar {
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 16px 18px;
+    }
+    .roi-item {
+      padding-right: 0;
+      margin-right: 0;
+      border-right: none;
+      padding-bottom: 16px;
+      border-bottom: 0.5px solid rgba(255,255,255,0.1);
+    }
+    .roi-item:nth-child(2) { border-bottom: 0.5px solid rgba(255,255,255,0.1); }
+    .roi-item:nth-child(3),
+    .roi-item:nth-child(4) { padding-bottom: 0; border-bottom: none; }
+
+    .stat-row { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .stat-val { font-size: 28px; }
+
+    .value-grid { grid-template-columns: 1fr; }
+
+    .footer {
+      padding: 14px 20px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .roi-bar { grid-template-columns: 1fr; }
+    .roi-item { border-bottom: 0.5px solid rgba(255,255,255,0.1) !important; padding-bottom: 12px !important; }
+    .roi-item:last-child { border-bottom: none !important; padding-bottom: 0 !important; }
+  }
+
   @media print {
-    body { background: white; }
-    .page { margin: 0; width: 100%; }
+    body { background: white; font-size: 10pt; }
+    .page { max-width: 100%; }
+    .body { padding: 20px 30px; }
+    .header { padding: 20px 30px; }
+    .steps { grid-template-columns: repeat(3, 1fr); }
+    .pricing-grid { grid-template-columns: 1fr 1fr; }
+    .roi-bar { grid-template-columns: repeat(4, 1fr); }
+    .stat-row { grid-template-columns: repeat(4, 1fr); }
+    .value-grid { grid-template-columns: 1fr 1fr; }
   }
 </style>
 </head>
@@ -393,12 +516,10 @@
 
   <!-- HEADER -->
   <div class="header">
-    <div class="header-left">
-      <div class="header-eyebrow">Agent preview — feedback draft 2026</div>
-      <div class="header-title">Client for Life</div>
-      <div class="header-tagline">Stay top of mind with every past client, automatically — so referrals keep coming without you lifting a finger.</div>
-    </div>
-    <div class="header-right">
+    <div class="header-eyebrow">Agent preview — 2026</div>
+    <div class="header-title">Client for Life</div>
+    <div class="header-tagline">Stay top of mind with every past client, automatically — so referrals keep coming without you lifting a finger.</div>
+    <div class="header-bottom">
       <div class="header-pills">
         <span class="pill">Set &amp; forget</span>
         <span class="pill">AI powered</span>
@@ -413,7 +534,7 @@
   <div class="body">
 
     <!-- HOW IT WORKS -->
-    <div class="full-width">
+    <div class="section">
       <div class="section-label">How it works — 3 steps, then nothing</div>
       <div class="steps">
         <div class="step">
@@ -438,7 +559,7 @@
     <hr class="divider">
 
     <!-- COMPARISON TABLE -->
-    <div class="full-width">
+    <div class="section">
       <div class="section-label">What's included — base vs pro</div>
       <div class="compare-wrap">
         <table class="compare-table">
@@ -471,7 +592,6 @@
               <td class="col-base"><span class="check">✓</span></td>
               <td class="col-pro"><span class="check">✓</span></td>
             </tr>
-
             <tr class="section-row"><td colspan="3">Automated touchpoints</td></tr>
             <tr class="feature-row">
               <td>Weird daily holiday — opens every send with personality</td>
@@ -488,7 +608,6 @@
               <td class="col-base"><span class="check">✓</span></td>
               <td class="col-pro"><span class="check">✓</span></td>
             </tr>
-
             <tr class="section-row"><td colspan="3">Engagement and gamification — pro only</td></tr>
             <tr class="feature-row">
               <td>Weekly sends — trivia, fun facts, word of week, polls</td>
@@ -510,7 +629,6 @@
               <td class="col-base"><span class="dash">—</span></td>
               <td class="col-pro"><span class="check">✓</span></td>
             </tr>
-
             <tr class="section-row"><td colspan="3">Prize and giveaway system — pro only</td></tr>
             <tr class="feature-row">
               <td>Monthly prize draw — $50–$150 gift cards</td>
@@ -532,7 +650,6 @@
               <td class="col-base"><span class="dash">—</span></td>
               <td class="col-pro"><span class="check">✓</span></td>
             </tr>
-
             <tr class="section-row"><td colspan="3">Lead generation — pro only</td></tr>
             <tr class="feature-row">
               <td>Quarterly survey — "thinking about making a move?" lead capture</td>
@@ -561,8 +678,8 @@
 
     <hr class="divider">
 
-    <!-- PRICING LEFT | ROI RIGHT -->
-    <div>
+    <!-- PRICING + ROI -->
+    <div class="section">
       <div class="section-label">Plans</div>
       <div class="pricing-grid">
         <div class="pricing-card">
@@ -578,10 +695,6 @@
           <div class="pricing-tagline">"Turn your database into an active referral engine with prizes, engagement, and lead intelligence."</div>
         </div>
       </div>
-    </div>
-
-    <div>
-      <div class="section-label">The ROI math — base tier</div>
       <div class="roi-bar">
         <div class="roi-item">
           <div class="roi-label">Annual fee</div>
@@ -608,50 +721,69 @@
 
     <hr class="divider">
 
-    <!-- FEEDBACK -->
-    <div class="full-width">
-      <div class="section-label">We'd love your honest feedback — nothing is set in stone</div>
-      <div class="feedback-grid">
-        <div class="fq">
-          <div class="fq-num">01</div>
-          <div>
-            <div class="fq-text">Does a monthly newsletter feel like enough or do you want more frequent contact?</div>
-            <div class="fq-sub">Base is monthly. Pro adds weekly sends with trivia, polls, word of week.</div>
-          </div>
+    <!-- VALUE SHOWCASE -->
+    <div class="section">
+      <div class="section-label">Why this works — the numbers don't lie</div>
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-val">82%</div>
+          <div class="stat-label">of buyers and sellers say they would use their agent again</div>
+          <div class="stat-sub">But only 12% actually do — because the agent disappeared</div>
         </div>
-        <div class="fq">
-          <div class="fq-num">02</div>
-          <div>
-            <div class="fq-text">Is the AVM home value update the feature that would make your clients open it every month?</div>
-            <div class="fq-sub">Personalized to each client's specific address from your CSV</div>
-          </div>
+        <div class="stat-card">
+          <div class="stat-val">5x</div>
+          <div class="stat-label">cheaper to retain a past client than acquire a cold lead</div>
+          <div class="stat-sub">Yet most agents spend 90% of their budget on strangers</div>
         </div>
-        <div class="fq">
-          <div class="fq-num">03</div>
-          <div>
-            <div class="fq-text">Does the prize system feel compelling enough to upgrade to pro?</div>
-            <div class="fq-sub">Monthly $50–150, quarterly $150–500, annual $500–1,500 — all handled for you</div>
-          </div>
+        <div class="stat-card">
+          <div class="stat-val">41%</div>
+          <div class="stat-label">of sellers find their agent through a referral or repeat use</div>
+          <div class="stat-sub">Your database is already your best lead source — untapped</div>
         </div>
-        <div class="fq">
-          <div class="fq-num">04</div>
-          <div>
-            <div class="fq-text">Is one monthly approval checkpoint manageable or still too much friction?</div>
-            <div class="fq-sub">Roughly 60 seconds — read the AI draft, click approve, done</div>
-          </div>
+        <div class="stat-card">
+          <div class="stat-val">1</div>
+          <div class="stat-label">extra referral per year from your database pays for everything</div>
+          <div class="stat-sub">Most nurtured databases generate 3–5 referrals annually</div>
         </div>
-        <div class="fq">
-          <div class="fq-num">05</div>
-          <div>
-            <div class="fq-text">At $149/month does base feel like fair value compared to what you currently spend on leads?</div>
-            <div class="fq-sub">Compare to CRM, Zillow, paid ads, or other marketing spend</div>
-          </div>
+      </div>
+      <div class="value-grid">
+        <div class="proof-card">
+          <div class="proof-eyebrow">The proof of concept</div>
+          <div class="proof-quote">"I barely nurtured my past clients for 8 years. They still fed my business consistently. Had I actually worked my database — this system would have been running the whole time."</div>
+          <div class="proof-attr">— The agent who built Client for Life</div>
+          <div class="proof-point">If a neglected database still produces referrals, imagine what a nurtured one does.</div>
         </div>
-        <div class="fq">
-          <div class="fq-num">06</div>
-          <div>
-            <div class="fq-text">What would make you sign up immediately vs. wait and see?</div>
-            <div class="fq-sub">Most important question on this list — be brutally honest</div>
+        <div class="experience-card">
+          <div class="proof-eyebrow">What your past clients experience</div>
+          <div class="exp-timeline">
+            <div class="exp-item">
+              <div class="exp-dot dot-green"></div>
+              <div class="exp-content">
+                <div class="exp-title">Month 1</div>
+                <div class="exp-desc">They get a branded email showing their home's current value. They forward it to their spouse.</div>
+              </div>
+            </div>
+            <div class="exp-item">
+              <div class="exp-dot dot-blue"></div>
+              <div class="exp-content">
+                <div class="exp-title">Month 3</div>
+                <div class="exp-desc">They've seen your name every month. A neighbor mentions they're thinking of selling. Your client thinks of you first.</div>
+              </div>
+            </div>
+            <div class="exp-item">
+              <div class="exp-dot dot-amber"></div>
+              <div class="exp-content">
+                <div class="exp-title">Month 6 — Pro</div>
+                <div class="exp-desc">They enter the quarterly prize draw. They click "refer a friend" for extra entries. You get a warm introduction.</div>
+              </div>
+            </div>
+            <div class="exp-item">
+              <div class="exp-dot dot-purple"></div>
+              <div class="exp-content">
+                <div class="exp-title">Month 12 — Pro</div>
+                <div class="exp-desc">They're competing for the year end prize. They've referred two people. You've closed one of them.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -661,11 +793,10 @@
 
   <!-- FOOTER -->
   <div class="footer">
-    <div class="footer-left">Client for Life — Confidential agent preview — May 2026</div>
-    <div class="footer-right">Questions? <span>Reach out directly — this is a feedback conversation, not a sales pitch</span></div>
+    <div class="footer-left">Client for Life — Agent preview — May 2026</div>
+    <div class="footer-right">Questions? <span>Reach out directly</span></div>
   </div>
 
 </div>
 </body>
 </html>
-</content>
