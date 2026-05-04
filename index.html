@@ -471,6 +471,13 @@
   .mt-panel { display: none; }
   .mt-panel.active { display: block; }
 
+  .mt-plan-card { border: 0.5px solid #e8e6e0; border-radius: 10px; padding: 20px; margin-bottom: 14px; }
+  .mt-plan-card-pro { background: #1a1a2e; border-color: #1a1a2e; }
+  .mt-plan-header { margin-bottom: 20px; }
+  .mt-plan-badge { font-family: 'DM Mono', monospace; font-size: 11px; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 10px; }
+  .base-badge { background: #f5f4f0; color: #888780; }
+  .pro-badge { background: rgba(255,255,255,0.1); color: #9FE1CB; }
+
   /* ── MOBILE BREAKPOINTS ── */
   @media (max-width: 640px) {
     .header { padding: 24px 20px 20px; }
@@ -484,6 +491,7 @@
 
     .compare-wrap { display: none; }
     .mobile-toggle { display: block; }
+    .pricing-section-mobile-hide { display: none; }
 
     .pricing-grid { grid-template-columns: 1fr; }
     .pricing-price { font-size: 30px; }
@@ -657,17 +665,17 @@
             </tr>
             <tr class="section-row"><td colspan="3">Prize and giveaway system — pro only</td></tr>
             <tr class="feature-row">
-              <td>Monthly prize draw — curated gift selection</td>
+              <td>Monthly prize draw — up to $150</td>
               <td class="col-base"><span class="dash">—</span></td>
               <td class="col-pro"><span class="check">✓</span></td>
             </tr>
             <tr class="feature-row">
-              <td>Quarterly prize draw — premium curated experiences and gifts</td>
+              <td>Quarterly prize draw — up to $500</td>
               <td class="col-base"><span class="dash">—</span></td>
               <td class="col-pro"><span class="check">✓</span></td>
             </tr>
             <tr class="feature-row">
-              <td>Annual prize draw — top tier curated selection</td>
+              <td>Annual prize draw — up to $1,500</td>
               <td class="col-base"><span class="dash">—</span></td>
               <td class="col-pro"><span class="check">✓</span></td>
             </tr>
@@ -705,15 +713,15 @@
       </div>
     </div>
 
-    <!-- MOBILE TOGGLE -->
+    <!-- MOBILE STACKED PLANS -->
     <div class="mobile-toggle">
-      <div class="toggle-bar">
-        <button class="toggle-btn active-base" id="btn-base" onclick="switchPlan('base')">Base — $149/mo</button>
-        <button class="toggle-btn" id="btn-pro" onclick="switchPlan('pro')">Pro — $249/mo</button>
-      </div>
-      <div class="mt-panel active" id="panel-base">
-        <div class="mt-price-row"><span class="mt-price-big">$149</span><span class="mt-price-per">/month per agent</span></div>
-        <div class="mt-tagline">"Stop going dark. Your past clients hear from you every month, automatically."</div>
+
+      <div class="mt-plan-card">
+        <div class="mt-plan-header">
+          <div class="mt-plan-badge base-badge">Base</div>
+          <div class="mt-price-row"><span class="mt-price-big">$149</span><span class="mt-price-per">/month per agent</span></div>
+          <div class="mt-tagline">"Stop going dark. Your past clients hear from you every month, automatically."</div>
+        </div>
         <div class="mt-group">
           <div class="mt-group-label">Monthly newsletter</div>
           <div class="mt-item"><div class="mt-dot yes">✓</div><div><div class="mt-text">Monthly send — AI drafted, agent approved</div><div class="mt-sub">One 60-second approval, everything else automatic</div></div></div>
@@ -727,39 +735,38 @@
           <div class="mt-item"><div class="mt-dot yes">✓</div><div><div class="mt-text">Birthday send — warm auto message</div></div></div>
           <div class="mt-item"><div class="mt-dot yes">✓</div><div><div class="mt-text">Home anniversary send — triggered on purchase date</div></div></div>
         </div>
+      </div>
+
+      <div class="mt-plan-card mt-plan-card-pro">
+        <div class="mt-plan-header">
+          <div class="mt-plan-badge pro-badge">Pro</div>
+          <div class="mt-price-row"><span class="mt-price-big" style="color:#ffffff;">$249</span><span class="mt-price-per" style="color:#5F5E5A;">/month per agent</span></div>
+          <div class="mt-tagline" style="color:#888780;">"Turn your database into an active referral engine with prizes, engagement, and lead intelligence."</div>
+        </div>
         <div class="mt-group">
-          <div class="mt-group-label">Not included in base</div>
-          <div class="mt-item" style="opacity:0.4;"><div class="mt-dot no">—</div><div><div class="mt-text">Weekly sends, trivia, polls, leaderboard</div><div class="mt-badge">Pro only</div></div></div>
-          <div class="mt-item" style="opacity:0.4;"><div class="mt-dot no">—</div><div><div class="mt-text">Prize and raffle system</div><div class="mt-badge">Pro only</div></div></div>
-          <div class="mt-item" style="opacity:0.4;"><div class="mt-dot no">—</div><div><div class="mt-text">Lead gen surveys and engagement intelligence</div><div class="mt-badge">Pro only</div></div></div>
+          <div class="mt-group-label" style="color:#5F5E5A; border-color:rgba(255,255,255,0.1);">Everything in base, plus</div>
+          <div class="mt-item" style="border-color:rgba(255,255,255,0.08);"><div class="mt-dot pro">✓</div><div><div class="mt-text" style="color:#ffffff;">Weekly sends — trivia, fun facts, word of week, polls</div><div class="mt-sub">Fully automated, zero approval needed</div></div></div>
+          <div class="mt-item" style="border-color:rgba(255,255,255,0.08);"><div class="mt-dot pro">✓</div><div><div class="mt-text" style="color:#ffffff;">Leaderboard — client scoring year-round</div></div></div>
+          <div class="mt-item" style="border-color:rgba(255,255,255,0.08);"><div class="mt-dot pro">✓</div><div><div class="mt-text" style="color:#ffffff;">Agent tone matching — newsletters sound like you</div></div></div>
+        </div>
+        <div class="mt-group">
+          <div class="mt-group-label" style="color:#5F5E5A; border-color:rgba(255,255,255,0.1);">Prize and giveaway system</div>
+          <div class="mt-item" style="border-color:rgba(255,255,255,0.08);"><div class="mt-dot pro">✓</div><div><div class="mt-text" style="color:#ffffff;">Monthly prize draw — up to $150</div><div class="mt-sub">Curated selection, you choose what fits</div></div></div>
+          <div class="mt-item" style="border-color:rgba(255,255,255,0.08);"><div class="mt-dot pro">✓</div><div><div class="mt-text" style="color:#ffffff;">Quarterly prize draw — up to $500</div><div class="mt-sub">Premium curated options</div></div></div>
+          <div class="mt-item" style="border-color:rgba(255,255,255,0.08);"><div class="mt-dot pro">✓</div><div><div class="mt-text" style="color:#ffffff;">Annual prize draw — up to $1,500</div><div class="mt-sub">Top tier curated selection</div></div></div>
+          <div class="mt-item" style="border-color:rgba(255,255,255,0.08);"><div class="mt-dot pro">✓</div><div><div class="mt-text" style="color:#ffffff;">Prize fulfillment — fully handled for you</div><div class="mt-sub">Nothing to buy, wrap, or ship</div></div></div>
+          <div class="mt-note" style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.1); color:#5F5E5A;">* Prize costs are separate from the monthly platform fee. Each tier includes a curated menu of options — you choose what fits your clients and budget.</div>
+        </div>
+        <div class="mt-group">
+          <div class="mt-group-label" style="color:#5F5E5A; border-color:rgba(255,255,255,0.1);">Lead generation</div>
+          <div class="mt-item" style="border-color:rgba(255,255,255,0.08);"><div class="mt-dot pro">✓</div><div><div class="mt-text" style="color:#ffffff;">Quarterly survey — lead capture disguised as engagement</div><div class="mt-sub">"Thinking about making a move?" goes straight to you</div></div></div>
+          <div class="mt-item" style="border-color:rgba(255,255,255,0.08);"><div class="mt-dot pro">✓</div><div><div class="mt-text" style="color:#ffffff;">Engagement intelligence — see who's warm</div></div></div>
+          <div class="mt-item" style="border-color:rgba(255,255,255,0.08);"><div class="mt-dot pro">✓</div><div><div class="mt-text" style="color:#ffffff;">VIP client gifting — handled for you</div></div></div>
         </div>
       </div>
-      <div class="mt-panel" id="panel-pro">
-        <div class="mt-price-row"><span class="mt-price-big">$249</span><span class="mt-price-per">/month per agent</span></div>
-        <div class="mt-tagline">"Turn your database into an active referral engine with prizes, engagement, and lead intelligence."</div>
-        <div class="mt-group">
-          <div class="mt-group-label">Everything in base, plus</div>
-          <div class="mt-item"><div class="mt-dot pro">✓</div><div><div class="mt-text">Weekly sends — trivia, fun facts, word of week, polls</div><div class="mt-sub">Fully automated, zero approval needed</div></div></div>
-          <div class="mt-item"><div class="mt-dot pro">✓</div><div><div class="mt-text">Leaderboard — client scoring year-round</div></div></div>
-          <div class="mt-item"><div class="mt-dot pro">✓</div><div><div class="mt-text">Agent tone matching — newsletters sound like you</div></div></div>
-        </div>
-        <div class="mt-group">
-          <div class="mt-group-label">Prize and giveaway system</div>
-          <div class="mt-item"><div class="mt-dot pro">✓</div><div><div class="mt-text">Monthly prize draw</div><div class="mt-sub">Choose from a curated selection at each draw level</div></div></div>
-          <div class="mt-item"><div class="mt-dot pro">✓</div><div><div class="mt-text">Quarterly prize draw</div><div class="mt-sub">Premium curated options — experiences, gifts, and more</div></div></div>
-          <div class="mt-item"><div class="mt-dot pro">✓</div><div><div class="mt-text">Annual prize draw</div><div class="mt-sub">Top tier curated selection — your clients will remember it</div></div></div>
-          <div class="mt-item"><div class="mt-dot pro">✓</div><div><div class="mt-text">Prize fulfillment — fully handled for you</div><div class="mt-sub">Nothing to buy, wrap, or ship</div></div></div>
-          <div class="mt-note">* Prize costs are separate from the monthly platform fee. Each tier includes a curated menu of options — you choose what fits your clients and budget.</div>
-        </div>
-        <div class="mt-group">
-          <div class="mt-group-label">Lead generation</div>
-          <div class="mt-item"><div class="mt-dot pro">✓</div><div><div class="mt-text">Quarterly survey — lead capture disguised as engagement</div><div class="mt-sub">"Thinking about making a move?" goes straight to you</div></div></div>
-          <div class="mt-item"><div class="mt-dot pro">✓</div><div><div class="mt-text">Engagement intelligence — see who's warm</div></div></div>
-          <div class="mt-item"><div class="mt-dot pro">✓</div><div><div class="mt-text">VIP client gifting — handled for you</div></div></div>
-        </div>
-      </div>
+
     </div>
-    <div class="section">
+    <div class="section pricing-section-mobile-hide">
       <div class="section-label">Plans</div>
       <div class="pricing-grid">
         <div class="pricing-card">
@@ -878,13 +885,5 @@
   </div>
 
 </div>
-<script>
-function switchPlan(plan) {
-  document.getElementById('panel-base').classList.toggle('active', plan === 'base');
-  document.getElementById('panel-pro').classList.toggle('active', plan === 'pro');
-  document.getElementById('btn-base').className = 'toggle-btn' + (plan === 'base' ? ' active-base' : '');
-  document.getElementById('btn-pro').className = 'toggle-btn' + (plan === 'pro' ? ' active-pro' : '');
-}
-</script>
 </body>
 </html>
